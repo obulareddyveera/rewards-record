@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { ElementList, ElementLayout, ElementPopup } from "./elements";
+import { RewardsProvider } from "./context/rewards-context";
 
 function App() {
+  const [state, setState] = useState({
+    allowTransaction: false,
+  });
+
+
+  function setTransaction(record = {}) {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        ...record,
+      };
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <RewardsProvider>
+        <ElementLayout handleTransaction={setTransaction} state={state}>
+          <ElementList />
+          <ElementPopup
+            handleTransaction={setTransaction}
+            allowTransaction={state.allowTransaction}
+          ></ElementPopup>
+        </ElementLayout>
+      </RewardsProvider>
+    </>
   );
 }
 
