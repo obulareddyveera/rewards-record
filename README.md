@@ -1,8 +1,8 @@
 # This is a Simple assignment of calculating Reward points.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-: npm create-react-app rewards-record
-: TailwindCSS Integration was added : https://tailwindcss.com/docs/guides/create-react-app
+* npm create-react-app rewards-record
+* TailwindCSS Integration was added : https://tailwindcss.com/docs/guides/create-react-app
 
 ### `npm start`
 
